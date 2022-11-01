@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.tableWithEpisodes {
+  margin-top: 20px;
+  &__rowTitle {
+    background-color: $mainYellow;
+  }
+  &__header {
+    font-size: 1rem;
+  }
+}

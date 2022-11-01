@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import FirstScreen from './components/FirstScreen';
-import Table from './components/Table';
+import SecondScreen from './components/SecondScreen';
 
 interface Episode {
   episode_id: number;
@@ -27,7 +27,6 @@ export default function App() {
 
   function toggleShowTable() {
     setShowTable((prevShowTable) => !prevShowTable);
-    console.log(showTable);
   }
 
   function modifyEpisodes(newArr: Episode[]) {
@@ -38,7 +37,7 @@ export default function App() {
     <AppContext.Provider value={{ showTable, toggleShowTable, episodes, modifyEpisodes }}>
       <div className="App">
         <FirstScreen />
-        <Table />
+        <SecondScreen />
       </div>
     </AppContext.Provider>
   );
