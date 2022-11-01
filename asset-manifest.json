@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/breaking-bad/static/css/main.8167483d.css",
-    "main.js": "/breaking-bad/static/js/main.8abd6a67.js",
-    "static/media/bg.jpeg": "/breaking-bad/static/media/bg.8b98721a7fa9dadbb994.jpeg",
-    "static/media/BreakingBad.otf": "/breaking-bad/static/media/BreakingBad.3513760cec3086c0167f.otf",
-    "index.html": "/breaking-bad/index.html",
-    "main.8167483d.css.map": "/breaking-bad/static/css/main.8167483d.css.map",
-    "main.8abd6a67.js.map": "/breaking-bad/static/js/main.8abd6a67.js.map"
+    "main.css": "/Breaking-Bad/static/css/main.726b19f8.css",
+    "main.js": "/Breaking-Bad/static/js/main.8abd6a67.js",
+    "static/media/bg.jpeg": "/Breaking-Bad/static/media/bg.8b98721a7fa9dadbb994.jpeg",
+    "static/media/BreakingBad.otf": "/Breaking-Bad/static/media/BreakingBad.3513760cec3086c0167f.otf",
+    "index.html": "/Breaking-Bad/index.html",
+    "main.726b19f8.css.map": "/Breaking-Bad/static/css/main.726b19f8.css.map",
+    "main.8abd6a67.js.map": "/Breaking-Bad/static/js/main.8abd6a67.js.map"
   },
   "entrypoints": [
-    "static/css/main.8167483d.css",
+    "static/css/main.726b19f8.css",
     "static/js/main.8abd6a67.js"
   ]
 }
