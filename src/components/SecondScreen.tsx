@@ -3,9 +3,27 @@ import { AppContext } from '../App';
 import styles from './SecondScreen.module.scss';
 import classnames from 'classnames';
 import TableWithEpisodes from './TableWithEpisodes';
+import { Episode } from '../interfaces';
 
 export default function SecondScreen() {
   const currentContext = useContext(AppContext);
+
+  function sortById() {
+    const Episodes = JSON.parse(JSON.stringify(currentContext?.episodes));
+    const updatedEpisodes = Episodes.sort((a: Episode, b: Episode) => a.episode_id - b.episode_id);
+    currentContext?.modifyEpisodes(updatedEpisodes);
+  }
+
+  function sortByCharsQuantity() {
+    const Episodes = JSON.parse(JSON.stringify(currentContext?.episodes));
+    const updatedEpisodes = Episodes.sort((a: Episode, b: Episode) => a.characters.length - b.characters.length);
+    currentContext?.modifyEpisodes(updatedEpisodes);
+  }
+
+  function clearStateEpisodes() {
+    currentContext?.modifyEpisodes([]);
+    currentContext?.toggleShowTable();
+  }
 
   return (
     <div className={classnames(styles.secondScreen, { [styles.secondScreen_show]: currentContext?.showTable })}>
@@ -13,9 +31,16 @@ export default function SecondScreen() {
         <h1 className={styles.secondScreen__title}>Все эпизоды сериала Во все тяжкие</h1>
         <div className={styles.secondScreen__sort}>
           <h2 className={styles.secondScreen__h2}>Сортировка:</h2>
-          <button className={styles.secondScreen__button}>По номеру эпизода</button>{' '}
-          <button className={styles.secondScreen__button}>По количеству персонажей</button>
-          <button className={classnames(styles.secondScreen__button, styles.secondScreen__buttonDelete)}>
+          <button onClick={sortById} className={styles.secondScreen__button}>
+            По номеру эпизода
+          </button>{' '}
+          <button onClick={sortByCharsQuantity} className={styles.secondScreen__button}>
+            По количеству персонажей
+          </button>
+          <button
+            onClick={clearStateEpisodes}
+            className={classnames(styles.secondScreen__button, styles.secondScreen__buttonDelete)}
+          >
             Удалить все эпизоды
           </button>
         </div>

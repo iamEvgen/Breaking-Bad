@@ -2,10 +2,55 @@
 
 .tableWithEpisodes {
   margin-top: 20px;
+  width: 100%;
   &__rowTitle {
     background-color: $mainYellow;
   }
-  &__header {
+  &__headerInTable {
     font-size: 1rem;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  &__td {
+    text-align: center;
+  }
+  &__charText {
+    margin-left: 20px;
+  }
+  &__charAndButtons {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0 auto;
+  }
+  &__charButtons {
+    display: flex;
+    gap: 10px;
+  }
+  &__charButton {
+    font-size: 1.2rem;
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: $mainYellow;
+    transition: all ease-in-out 0.2s;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($mainYellow, 10%);
+    }
+  }
+  &__minusButton {
+    padding-bottom: 4px;
+  }
+  &__delButton {
+    color: white;
+    padding-bottom: 4px;
+    background-color: $mainRed;
+    &:hover {
+      background-color: darken($mainRed, 10%);
+    }
   }
 }

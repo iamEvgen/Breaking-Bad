@@ -2,22 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import FirstScreen from './components/FirstScreen';
 import SecondScreen from './components/SecondScreen';
-
-interface Episode {
-  episode_id: number;
-  title: string;
-  season: number;
-  air_date: string;
-  characters: string[];
-  episode: number;
-  series: string;
-}
-interface AppContextInterface {
-  showTable: boolean;
-  toggleShowTable: () => void;
-  episodes: Episode[];
-  modifyEpisodes: (newArr: Episode[]) => void;
-}
+import { AppContextInterface, Episode } from './interfaces';
 
 export const AppContext = React.createContext<AppContextInterface | null>(null);
 
