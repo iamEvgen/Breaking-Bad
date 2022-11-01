@@ -25,6 +25,8 @@
     max-width: 960px;
     min-width: 660px;
     min-height: 200px;
+    display: flex;
+    flex-direction: column;
   }
   &__title {
     text-align: center;
@@ -58,5 +60,9 @@
     &:hover {
       background-color: lighten($mainRed, 15%);
     }
+  }
+  &__loading {
+    width: 64px;
+    margin: 20px auto;
   }
 }

@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../App';
 import styles from './SecondScreen.module.scss';
 import classnames from 'classnames';
 import TableWithEpisodes from './TableWithEpisodes';
 import { Episode } from '../interfaces';
+import loading from '../img/loading.gif';
 
 export default function SecondScreen() {
   const currentContext = useContext(AppContext);
+
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (currentContext?.episodes.length === 0) {
+      setTimeout(() => setIsLoading(true), 500);
+    } else {
+      setIsLoading(false);
+    }
+  }, [currentContext?.episodes]);
 
   function sortById() {
     const Episodes = JSON.parse(JSON.stringify(currentContext?.episodes));
@@ -44,6 +55,7 @@ export default function SecondScreen() {
             Удалить все эпизоды
           </button>
         </div>
+        {isLoading && <img className={styles.secondScreen__loading} src={loading} alt="loading..." />}
         <TableWithEpisodes />
       </main>
     </div>
