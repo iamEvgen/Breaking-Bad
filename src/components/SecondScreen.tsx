@@ -55,8 +55,8 @@ export default function SecondScreen() {
             Удалить все эпизоды
           </button>
         </div>
-        {isLoading && <img className={styles.secondScreen__loading} src={loading} alt="loading..." />}
         <TableWithEpisodes />
+        {isLoading && <img className={styles.secondScreen__loading} src={loading} alt="loading..." />}
       </main>
     </div>
   );
