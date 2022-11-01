@@ -87,10 +87,14 @@ export default function TableWithEpisodes() {
       <thead>
         <tr className={styles.tableWithEpisodes__rowTitle}>
           <th className={styles.tableWithEpisodes__headerInTable}>Номер</th>
-          <th className={styles.tableWithEpisodes__headerInTable}>Название</th>
+          <th className={classnames(styles.tableWithEpisodes__headerInTable, styles.tableWithEpisodes__columnFixWidth)}>
+            Название
+          </th>
           <th className={styles.tableWithEpisodes__headerInTable}>Сезон</th>
           <th className={styles.tableWithEpisodes__headerInTable}>Дата выхода</th>
-          <th className={styles.tableWithEpisodes__headerInTable}>Количество персонажей</th>
+          <th className={classnames(styles.tableWithEpisodes__headerInTable, styles.tableWithEpisodes__columnFixWidth)}>
+            Количество персонажей
+          </th>
         </tr>
       </thead>
       <tbody>{allEpisodes}</tbody>

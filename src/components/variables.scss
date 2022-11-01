@@ -7,5 +7,14 @@
   transition: all ease-in-out 0.5s;
 }
 
+@mixin stopSelection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 $mainYellow: gold;
 $mainRed: rgb(198, 59, 59);
