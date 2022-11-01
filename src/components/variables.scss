@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'BreakingBad';
+  src: url('../fonts/BreakingBad.otf');
+}
+
+@mixin slideTransitioin {
+  transition: all ease-in-out 0.5s;
+}

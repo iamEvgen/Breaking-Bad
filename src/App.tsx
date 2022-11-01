@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import FirstScreen from './components/FirstScreen';
+import Table from './components/Table';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Episode {
+  episode_id: number;
+  title: string;
+  season: number;
+  air_date: string;
+  characters: string[];
+  episode: number;
+  series: string;
+}
+interface AppContextInterface {
+  showTable: boolean;
+  toggleShowTable: () => void;
+  episodes: Episode[];
+  modifyEpisodes: (newArr: Episode[]) => void;
 }
 
-export default App;
+export const AppContext = React.createContext<AppContextInterface | null>(null);
+
+export default function App() {
+  const [showTable, setShowTable] = useState(false);
+  const [episodes, setEpisodes] = useState<Episode[]>([]);
+
+  function toggleShowTable() {
+    setShowTable((prevShowTable) => !prevShowTable);
+    console.log(showTable);
+  }
+
+  function modifyEpisodes(newArr: Episode[]) {
+    setEpisodes(newArr);
+  }
+
+  return (
+    <AppContext.Provider value={{ showTable, toggleShowTable, episodes, modifyEpisodes }}>
+      <div className="App">
+        <FirstScreen />
+        <Table />
+      </div>
+    </AppContext.Provider>
+  );
+}
