@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Breaking-Bad/static/css/main.5cba7245.css",
-    "main.js": "/Breaking-Bad/static/js/main.4420f078.js",
+    "main.css": "/Breaking-Bad/static/css/main.fc3df257.css",
+    "main.js": "/Breaking-Bad/static/js/main.8293802d.js",
     "static/media/bg.jpeg": "/Breaking-Bad/static/media/bg.8b98721a7fa9dadbb994.jpeg",
     "static/media/BreakingBad.otf": "/Breaking-Bad/static/media/BreakingBad.3513760cec3086c0167f.otf",
     "static/media/loading.gif": "/Breaking-Bad/static/media/loading.9f8a81ee77fb335ab546.gif",
     "index.html": "/Breaking-Bad/index.html",
-    "main.5cba7245.css.map": "/Breaking-Bad/static/css/main.5cba7245.css.map",
-    "main.4420f078.js.map": "/Breaking-Bad/static/js/main.4420f078.js.map"
+    "main.fc3df257.css.map": "/Breaking-Bad/static/css/main.fc3df257.css.map",
+    "main.8293802d.js.map": "/Breaking-Bad/static/js/main.8293802d.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cba7245.css",
-    "static/js/main.4420f078.js"
+    "static/css/main.fc3df257.css",
+    "static/js/main.8293802d.js"
   ]
 }
