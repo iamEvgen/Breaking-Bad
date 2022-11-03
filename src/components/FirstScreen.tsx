@@ -2,19 +2,12 @@ import React, { useContext } from 'react';
 import { AppContext } from '../App';
 import styles from './FirstScreen.module.scss';
 import classnames from 'classnames';
-import axios from 'axios';
+import useEpisodes from '../hooks/useEpisodes';
 
 function FirstScreen() {
   const currentContext = useContext(AppContext);
 
-  async function getEpisodes() {
-    try {
-      const response = await axios.get('https://breakingbadapi.com/api/episodes');
-      currentContext?.modifyEpisodes(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  const { refetch } = useEpisodes();
 
   return (
     <div className={classnames({ [styles.firstScreen]: true, [styles.firstScreen_hide]: currentContext?.showTable })}>
@@ -22,7 +15,7 @@ function FirstScreen() {
       <button
         onClick={() => {
           currentContext?.toggleShowTable();
-          getEpisodes();
+          refetch();
         }}
         className={styles.firstScreen__button}
       >

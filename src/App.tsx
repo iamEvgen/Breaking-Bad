@@ -3,12 +3,15 @@ import './App.css';
 import FirstScreen from './components/FirstScreen';
 import SecondScreen from './components/SecondScreen';
 import { AppContextInterface, Episode } from './interfaces';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 export const AppContext = React.createContext<AppContextInterface | null>(null);
 
 export default function App() {
   const [showTable, setShowTable] = useState(false);
   const [episodes, setEpisodes] = useState<Episode[]>([]);
+
+  const queryClient = new QueryClient();
 
   function toggleShowTable() {
     setShowTable((prevShowTable) => !prevShowTable);
@@ -20,10 +23,12 @@ export default function App() {
 
   return (
     <AppContext.Provider value={{ showTable, toggleShowTable, episodes, modifyEpisodes }}>
-      <div className="App">
-        <FirstScreen />
-        <SecondScreen />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="App">
+          <FirstScreen />
+          <SecondScreen />
+        </div>
+      </QueryClientProvider>
     </AppContext.Provider>
   );
 }
