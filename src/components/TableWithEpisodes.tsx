@@ -3,6 +3,7 @@ import { AppContext } from '../App';
 import styles from './TableWithEpisodes.module.scss';
 import classnames from 'classnames';
 import { Episode } from '../interfaces';
+import { Button } from '@mui/material';
 
 export default function TableWithEpisodes() {
   const currentContext = useContext(AppContext);
@@ -61,21 +62,15 @@ export default function TableWithEpisodes() {
             {episode.characters.length + ' персонаж' + wordEnding}
           </span>
           <div className={styles.tableWithEpisodes__charButtons}>
-            <button onClick={() => addChar(episode.episode_id)} className={styles.tableWithEpisodes__charButton}>
+            <Button size="small" variant="contained" onClick={() => addChar(episode.episode_id)}>
               +
-            </button>
-            <button
-              onClick={() => removeChar(episode.episode_id)}
-              className={classnames(styles.tableWithEpisodes__charButton, styles.tableWithEpisodes__minusButton)}
-            >
-              –
-            </button>
-            <button
-              onClick={() => delEpisode(episode.episode_id)}
-              className={classnames(styles.tableWithEpisodes__charButton, styles.tableWithEpisodes__delButton)}
-            >
-              x
-            </button>
+            </Button>
+            <Button onClick={() => removeChar(episode.episode_id)} size="small" variant="contained">
+              -
+            </Button>
+            <Button color="error" onClick={() => delEpisode(episode.episode_id)} size="small" variant="contained">
+              Del
+            </Button>
           </div>
         </td>
       </tr>

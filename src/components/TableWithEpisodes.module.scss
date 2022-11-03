@@ -11,9 +11,6 @@
     border-radius: 10px;
     padding: 5px;
   }
-  &__columnFixWidth {
-    width: 300px;
-  }
   &__td {
     text-align: center;
   }
@@ -21,10 +18,9 @@
     margin-left: 20px;
   }
   &__charAndButtons {
-    width: 280px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 20px;
   }
   &__charButtons {

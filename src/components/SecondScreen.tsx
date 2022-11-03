@@ -6,6 +6,7 @@ import TableWithEpisodes from './TableWithEpisodes';
 import { Episode } from '../interfaces';
 import loading from '../img/loading.gif';
 import useEpisodes from '../hooks/useEpisodes';
+import { Button, Typography } from '@mui/material';
 
 export default function SecondScreen() {
   const currentContext = useContext(AppContext);
@@ -32,21 +33,22 @@ export default function SecondScreen() {
   return (
     <div className={classnames(styles.secondScreen, { [styles.secondScreen_show]: currentContext?.showTable })}>
       <main className={styles.secondScreen__container}>
-        <h1 className={styles.secondScreen__title}>Все эпизоды сериала Во все тяжкие</h1>
+        <Typography component="h1" variant="h3" sx={{ mb: '20px' }}>
+          Все эпизоды сериала Во все тяжкие
+        </Typography>
         <div className={styles.secondScreen__sort}>
-          <h2 className={styles.secondScreen__h2}>Сортировка:</h2>
-          <button onClick={sortById} className={styles.secondScreen__button}>
+          <Typography component="h2" variant="h4">
+            Сортировка:
+          </Typography>
+          <Button variant="contained" onClick={sortById}>
             По номеру эпизода
-          </button>{' '}
-          <button onClick={sortByCharsQuantity} className={styles.secondScreen__button}>
+          </Button>
+          <Button variant="contained" onClick={sortByCharsQuantity}>
             По количеству персонажей
-          </button>
-          <button
-            onClick={clearStateEpisodes}
-            className={classnames(styles.secondScreen__button, styles.secondScreen__buttonDelete)}
-          >
+          </Button>
+          <Button color="error" variant="contained" onClick={clearStateEpisodes}>
             Удалить все эпизоды
-          </button>
+          </Button>
         </div>
         {isSuccess && <TableWithEpisodes />}
         {isFetching && <img className={styles.secondScreen__loading} src={loading} alt="loading..." />}
