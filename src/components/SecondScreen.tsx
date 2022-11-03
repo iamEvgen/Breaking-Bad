@@ -6,7 +6,7 @@ import TableWithEpisodes from './TableWithEpisodes';
 import { Episode } from '../interfaces';
 import loading from '../img/loading.gif';
 import useEpisodes from '../hooks/useEpisodes';
-import { Button, Typography } from '@mui/material';
+import { Button, Typography, Container } from '@mui/material';
 
 export default function SecondScreen() {
   const currentContext = useContext(AppContext);
@@ -32,7 +32,7 @@ export default function SecondScreen() {
 
   return (
     <div className={classnames(styles.secondScreen, { [styles.secondScreen_show]: currentContext?.showTable })}>
-      <main className={styles.secondScreen__container}>
+      <Container sx={{ maxWidth: 'sm', mt: '20px', mb: '20px' }}>
         <Typography component="h1" variant="h3" sx={{ mb: '20px' }}>
           Все эпизоды сериала Во все тяжкие
         </Typography>
@@ -53,7 +53,7 @@ export default function SecondScreen() {
         {isSuccess && <TableWithEpisodes />}
         {isFetching && <img className={styles.secondScreen__loading} src={loading} alt="loading..." />}
         {isError && <div className={styles.secondScreen__error}>Произошла ошибка при загрузке данных по API</div>}
-      </main>
+      </Container>
     </div>
   );
 }

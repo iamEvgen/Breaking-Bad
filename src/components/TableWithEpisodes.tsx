@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
-import styles from './TableWithEpisodes.module.scss';
-import classnames from 'classnames';
 import { Episode } from '../interfaces';
-import { Button } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 export default function TableWithEpisodes() {
   const currentContext = useContext(AppContext);
@@ -52,47 +50,48 @@ export default function TableWithEpisodes() {
       wordEnding = 'ей';
     }
     return (
-      <tr key={episode.episode_id}>
-        <td className={styles.tableWithEpisodes__td}>{episode.episode_id}</td>
-        <td className={styles.tableWithEpisodes__td}>{episode.title}</td>
-        <td className={styles.tableWithEpisodes__td}>{episode.season}</td>
-        <td className={styles.tableWithEpisodes__td}>{episode.air_date}</td>
-        <td className={styles.tableWithEpisodes__charAndButtons}>
-          <span className={styles.tableWithEpisodes__charText}>
-            {episode.characters.length + ' персонаж' + wordEnding}
-          </span>
-          <div className={styles.tableWithEpisodes__charButtons}>
-            <Button size="small" variant="contained" onClick={() => addChar(episode.episode_id)}>
-              +
-            </Button>
-            <Button onClick={() => removeChar(episode.episode_id)} size="small" variant="contained">
-              -
-            </Button>
-            <Button color="error" onClick={() => delEpisode(episode.episode_id)} size="small" variant="contained">
-              Del
-            </Button>
-          </div>
-        </td>
-      </tr>
+      <TableRow key={episode.episode_id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+        <TableCell align="center">{episode.episode_id}</TableCell>
+        <TableCell align="center">{episode.title}</TableCell>
+        <TableCell align="center">{episode.season}</TableCell>
+        <TableCell align="center">{episode.air_date}</TableCell>
+        <TableCell align="right">
+          {episode.characters.length + ' персонаж' + wordEnding}
+
+          <Button sx={{ ml: '10px' }} size="small" variant="contained" onClick={() => addChar(episode.episode_id)}>
+            +
+          </Button>
+          <Button sx={{ ml: '10px' }} onClick={() => removeChar(episode.episode_id)} size="small" variant="contained">
+            -
+          </Button>
+          <Button
+            sx={{ ml: '10px' }}
+            color="error"
+            onClick={() => delEpisode(episode.episode_id)}
+            size="small"
+            variant="contained"
+          >
+            Del
+          </Button>
+        </TableCell>
+      </TableRow>
     );
   });
 
   return (
-    <table className={styles.tableWithEpisodes}>
-      <thead>
-        <tr className={styles.tableWithEpisodes__rowTitle}>
-          <th className={styles.tableWithEpisodes__headerInTable}>Номер</th>
-          <th className={classnames(styles.tableWithEpisodes__headerInTable, styles.tableWithEpisodes__columnFixWidth)}>
-            Название
-          </th>
-          <th className={styles.tableWithEpisodes__headerInTable}>Сезон</th>
-          <th className={styles.tableWithEpisodes__headerInTable}>Дата выхода</th>
-          <th className={classnames(styles.tableWithEpisodes__headerInTable, styles.tableWithEpisodes__columnFixWidth)}>
-            Количество персонажей
-          </th>
-        </tr>
-      </thead>
-      <tbody>{allEpisodes}</tbody>
-    </table>
+    <TableContainer sx={{ mt: '20px' }} component={Paper}>
+      <Table sx={{ minWidth: 920 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="center">Номер</TableCell>
+            <TableCell align="center">Название</TableCell>
+            <TableCell align="center">Сезон</TableCell>
+            <TableCell align="center">Дата выхода</TableCell>
+            <TableCell align="center">Количество персонажей</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>{allEpisodes}</TableBody>
+      </Table>
+    </TableContainer>
   );
 }
