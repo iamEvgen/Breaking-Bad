@@ -32,7 +32,7 @@ export default function SecondScreen() {
 
   return (
     <div className={classnames(styles.secondScreen, { [styles.secondScreen_show]: currentContext?.showTable })}>
-      <Container sx={{ maxWidth: 'sm', mt: '20px', mb: '20px' }}>
+      <Container sx={{ maxWidth: 'lg', mt: '20px', mb: '20px' }}>
         <Typography component="h1" variant="h3" sx={{ mb: '20px' }}>
           Все эпизоды сериала Во все тяжкие
         </Typography>
