@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+.secondScreen {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 100vw;
+  width: 100%;
+  min-height: 100%;
+  background-color: $mainYellow;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  @include slideTransitioin;
+  &_show {
+    left: 0;
+  }
+}

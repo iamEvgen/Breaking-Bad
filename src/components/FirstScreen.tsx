@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../App';
-import styles from './FirstScreen.module.scss';
+import './FirstScreen.scss';
 import classnames from 'classnames';
 import useEpisodes from '../hooks/useEpisodes';
-import { Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 
 function FirstScreen() {
   const currentContext = useContext(AppContext);
@@ -11,8 +11,10 @@ function FirstScreen() {
   const { refetch } = useEpisodes();
 
   return (
-    <div className={classnames({ [styles.firstScreen]: true, [styles.firstScreen_hide]: currentContext?.showTable })}>
-      <h1 className={styles.firstScreen__title}>Breaking Bad</h1>
+    <div className={classnames('firstScreen', { firstScreen_hide: currentContext?.showTable })}>
+      <Typography sx={{ mt: '20px' }} variant="h2" component="h1">
+        Breaking Bad
+      </Typography>
       <Button
         sx={{ mb: '20px' }}
         variant="contained"

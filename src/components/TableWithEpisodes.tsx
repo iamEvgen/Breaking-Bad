@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../App';
 import { Episode } from '../interfaces';
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { yellow } from '@mui/material/colors';
 
 export default function TableWithEpisodes() {
   const currentContext = useContext(AppContext);
@@ -78,16 +79,32 @@ export default function TableWithEpisodes() {
     );
   });
 
+  const customizeTableHeader = {
+    fontSize: 16,
+    fontWeight: 700,
+    backgroundColor: yellow[500],
+  };
+
   return (
     <TableContainer sx={{ mt: '20px' }} component={Paper}>
       <Table sx={{ minWidth: 920 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Номер</TableCell>
-            <TableCell align="center">Название</TableCell>
-            <TableCell align="center">Сезон</TableCell>
-            <TableCell align="center">Дата выхода</TableCell>
-            <TableCell align="center">Количество персонажей</TableCell>
+            <TableCell sx={customizeTableHeader} align="center">
+              Номер
+            </TableCell>
+            <TableCell sx={customizeTableHeader} align="center">
+              Название
+            </TableCell>
+            <TableCell sx={customizeTableHeader} align="center">
+              Сезон
+            </TableCell>
+            <TableCell sx={customizeTableHeader} align="center">
+              Дата выхода
+            </TableCell>
+            <TableCell sx={customizeTableHeader} align="center">
+              Количество персонажей
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>{allEpisodes}</TableBody>
